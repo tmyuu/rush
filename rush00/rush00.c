@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 11:24:48 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/29 20:37:59 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/03/12 12:31:10 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void	ft_middle(int x)
 
 void	rush(int x, int y)
 {
-	if (y > 1 || y < -1)
+	if (x == 0 || y == 0)
+		return ;
+	else if (y > 1 || y < -1)
 		ft_top_and_bottom(x);
 	while (y > 2 || y < -2)
 	{

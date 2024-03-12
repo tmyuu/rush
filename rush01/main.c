@@ -5,16 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 11:24:33 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/03/12 12:23:56 by ymatsui          ###   ########.fr       */
+/*   Created: 2024/02/29 20:47:04 by ymatsui           #+#    #+#             */
+/*   Updated: 2024/02/29 20:50:31 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	rush(int x, int y);
-
-int	ft_atoi(char *str)
+int	ft_check_input(char *str)
 {
 	int	i;
 	int	num;
@@ -25,37 +21,19 @@ int	ft_atoi(char *str)
 	sign = 1;
 	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		sign = (str[i] == '-') ? -1 : 1;
-		i++;
-	}
 	while ('0' <= str[i] && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
-		i++;
 	return (num * sign);
 }
 
 int	main(int argc, char **argv)
 {
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	if (argc == 3)
+	if (argc == 2)
 	{
-		x = ft_atoi(argv[1]);
-		y = ft_atoi(argv[2]);
-		rush(x, y);
+		ft_check_input(argv[1]);
 	}
-	else if (argc == 1)
-		rush(0, 1);
-	else
-		write(2, "Error\n", 6);
 	return (0);
 }
